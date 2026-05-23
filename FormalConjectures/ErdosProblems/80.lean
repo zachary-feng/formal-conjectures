@@ -50,7 +50,7 @@ book of size $m$, that is, an edge shared by at least $m$ different triangles.
 def Erdos80Prop (c : ℝ) (m : ℕ) (n : ℕ) : Prop :=
   ∀ G : SimpleGraph (Fin n), G.edgeFinset.card ≥ c * (n : ℝ)^2 →
   (∀ uv ∈ G.edgeFinset, (trianglesContaining G uv).Nonempty) →
-  ∃ uv ∈ G.edgeFinset, m ≤ (trianglesContaining G uv).card
+  ∃ uv ∈ G.edgeFinset, m ≤ ((trianglesContaining G uv).card : ℕ)
 
 noncomputable def fFunction (c : ℝ) (n : ℕ) : ℕ := sSup {m : ℕ | Erdos80Prop c m n}
 
